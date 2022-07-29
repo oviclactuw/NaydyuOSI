@@ -28,8 +28,6 @@ env:
   FORGE_CLUSTER_NAME: ${{ secrets.FORGE_CLUSTER_NAME }}
   FORGE_OUTPUT: forge_output.txt
   FORGE_REPORT: forge_report.json
-  FORGE_COMMENT: forge_comment.txt
-  FORGE_PRE_COMMENT: forge_pre_comment.txt
   FORGE_RUNNER_MODE: k8s
   FORGE_NAMESPACE: ${{ inputs.FORGE_NAMESPACE }}
 
@@ -78,7 +76,6 @@ jobs:
         if: env.FORGE_ENABLED == 'true'
         shell: bash
         env:
-          PUSH_GATEWAY: ${{ secrets.PUSH_GATEWAY }}
           PUSH_GATEWAY_USER: ${{ secrets.PUSH_GATEWAY_USER }}
           PUSH_GATEWAY_PASSWORD: ${{ secrets.PUSH_GATEWAY_PASSWORD }}
         run: |
